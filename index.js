@@ -4,12 +4,15 @@ const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 require("dotenv").config();
 
 const con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: ""
-}) // hold up im gonna go install mysql on a vps
-// 188.40.194.152 - let me find password
-// Echo099 @Deposit <3
+    host: "188.40.194.152",
+    user: "pixelhaze",
+    password: "Echo099",
+    database: "Echo"
+})
+con.connect(function(err, rows) {
+    if(err) return console.log(err);
+    console.log(`Database is up!`)
+})
 
 client.on("messageReactionAdd", async reaction => {
     
